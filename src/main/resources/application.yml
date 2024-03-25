@@ -1,0 +1,4 @@
+iss-client:
+  url: http://api.open-notify.org
+media-wiki-client:
+  url: https://en.wikipedia.org/w/api.php
