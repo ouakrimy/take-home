@@ -37,5 +37,5 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push Docker image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/take-home
+      run: docker push ${{ secrets.DOCKER_LOGIN }}/take-home
    
