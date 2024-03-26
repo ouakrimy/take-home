@@ -43,7 +43,7 @@ public class IssPlaceServiceTest {
 
         // Mock response from MediaWikiClient
         MediaWikiResponse mediaWikiResponse = new MediaWikiResponse(new MediaWikiResponse.Query(Collections.singletonList(new MediaWikiResponse.Place(1, "Place 1", 40.712776, -74.005974, "USA"))));
-        when(mediaWikiClient.getNearbyPlaces(anyString(), anyString(), anyString(), anyString(), anyInt(), anyString())).thenReturn(mediaWikiResponse);
+        when(mediaWikiClient.getNearbyPlaces(anyString(), anyString(), anyString(), anyString(), anyInt(), anyString(), anyString())).thenReturn(mediaWikiResponse);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/v0/location"))
                 .andExpect(MockMvcResultMatchers.status().isOk())

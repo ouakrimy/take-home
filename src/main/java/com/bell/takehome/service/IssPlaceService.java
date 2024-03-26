@@ -19,6 +19,7 @@ public class IssPlaceService {
     private static final int GSLIMIT = 10;
 
     private static final String GSPROP = "country";
+    private static final String GSRADIUS = "10000";
 
     private final IssLocationClient issLocationClient;
 
@@ -34,9 +35,8 @@ public class IssPlaceService {
         var location = issLocationClient.getCurrentLocation();
         if (location == null || location.iss_position() == null) throw new NotFoundPlaceException("Current location of ISS not found.");
 
-        var gscoord = location.iss_position().latitude() + "|" + location.iss_position().longitude();
-        //var gscoord = "40.712776" + "|" + "-74.005974";
-        var response = mediaWikiClient.getNearbyPlaces(ACTION, LIST, FORMAT, gscoord, GSLIMIT, GSPROP);
+        var gscoord = location.iss_position().latitude() + "%7C" + location.iss_position().longitude();
+        var response = mediaWikiClient.getNearbyPlaces(ACTION, LIST, FORMAT, gscoord, GSLIMIT, GSPROP, GSRADIUS);
 
         var places = transformResponse(response);
         return new PlacesResponse(places);

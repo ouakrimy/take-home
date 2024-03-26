@@ -15,5 +15,6 @@ public interface MediaWikiClient {
                                       @RequestParam("format") String format,
                                       @RequestParam("gscoord") String gscoord,
                                       @RequestParam("gslimit") int gslimit,
-                                      @RequestParam("gsprop") String gsprop);
+                                      @RequestParam("gsprop") String gsprop,
+                                      @RequestParam("gsradius") String gsradius);
 }
